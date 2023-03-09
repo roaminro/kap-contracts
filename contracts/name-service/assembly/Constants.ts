@@ -4,5 +4,5 @@ export const AUTHORIZE_RENEWAL_ENTRYPOINT = 0xfc54a97f;
 
 export const NAME = "Koinos Account Protocol";
 export const SYMBOL = "KAP";
-export const URI = "https://test.kap.domains/metadata";
+export const URI = "https://test.kap.domains/api/metadata";
 export const ROYALTIES = 0;
