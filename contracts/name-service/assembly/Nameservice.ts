@@ -83,6 +83,11 @@ export class Nameservice {
 
   owner(args: nameservice.owner_arguments): nameservice.bytes_address_object {
     const metadata = this.metadata.get()!;
+
+    if (metadata.owner.length == 0) {
+      return new nameservice.bytes_address_object(this.contractId);
+    }
+    
     return new nameservice.bytes_address_object(metadata.owner);
   }
 
