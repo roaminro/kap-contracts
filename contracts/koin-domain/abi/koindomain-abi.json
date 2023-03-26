@@ -393,7 +393,7 @@
                                     "contract_upload": 2
                                 }
                             },
-                            "call_target": {
+                            "call_data": {
                                 "fields": {
                                     "contract_id": {
                                         "type": "bytes",
@@ -405,6 +405,14 @@
                                     "entry_point": {
                                         "type": "uint32",
                                         "id": 2
+                                    },
+                                    "caller": {
+                                        "type": "bytes",
+                                        "id": 3
+                                    },
+                                    "data": {
+                                        "type": "bytes",
+                                        "id": 4
                                     }
                                 }
                             },
@@ -422,7 +430,7 @@
                                         "id": 1
                                     },
                                     "call": {
-                                        "type": "call_target",
+                                        "type": "call_data",
                                         "id": 2,
                                         "options": {
                                             "proto3_optional": true
