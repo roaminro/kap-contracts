@@ -898,6 +898,118 @@
                     }
                 }
             },
+            "collections": {
+                "nested": {
+                    "mint_event": {
+                        "fields": {
+                            "to": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "token_id": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "HEX"
+                                }
+                            }
+                        }
+                    },
+                    "burn_event": {
+                        "fields": {
+                            "from": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "token_id": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "HEX"
+                                }
+                            }
+                        }
+                    },
+                    "transfer_event": {
+                        "fields": {
+                            "from": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "to": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "token_id": {
+                                "type": "bytes",
+                                "id": 3,
+                                "options": {
+                                    "(koinos.btype)": "HEX"
+                                }
+                            }
+                        }
+                    },
+                    "operator_approval_event": {
+                        "fields": {
+                            "approver_address": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "operator_address": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "approved": {
+                                "type": "bool",
+                                "id": 3
+                            }
+                        }
+                    },
+                    "token_approval_event": {
+                        "fields": {
+                            "approver_address": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "to": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "token_id": {
+                                "type": "bytes",
+                                "id": 3,
+                                "options": {
+                                    "(koinos.btype)": "HEX"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "koinos": {
                 "nested": {
                     "chain": {

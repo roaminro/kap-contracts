@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package collections;
+
+import "koinos/options.proto";
+
+// events
+message mint_event {
+   bytes to = 1 [(koinos.btype) = ADDRESS];
+   bytes token_id = 2 [(koinos.btype) = HEX];
+}
+
+message burn_event {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   bytes token_id = 2 [(koinos.btype) = HEX];
+}
+
+message transfer_event {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   bytes to = 2 [(koinos.btype) = ADDRESS];
+   bytes token_id = 3 [(koinos.btype) = HEX];
+}
+
+message operator_approval_event {
+   bytes approver_address = 1 [(koinos.btype) = ADDRESS];
+   bytes operator_address = 2 [(koinos.btype) = ADDRESS];
+   bool approved = 3;
+}
+
+message token_approval_event {
+   bytes approver_address = 1 [(koinos.btype) = ADDRESS];
+   bytes to = 2 [(koinos.btype) = ADDRESS];
+   bytes token_id = 3 [(koinos.btype) = HEX];
+}
