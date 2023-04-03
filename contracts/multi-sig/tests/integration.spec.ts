@@ -89,6 +89,10 @@ describe('signers management', () => {
     // add signer
     let res = await multisigContract.functions.add_signer({
       signer: user1.address
+    }, {
+      beforeSend: async (tx) => {
+        await user1.signer.signTransaction(tx);
+      }
     });
 
     await res.transaction?.wait();
@@ -107,6 +111,7 @@ describe('signers management', () => {
     }, {
       beforeSend: async (tx) => {
         await user1.signer.signTransaction(tx);
+        await user2.signer.signTransaction(tx);
       }
     });
 
@@ -130,6 +135,7 @@ describe('signers management', () => {
       beforeSend: async (tx) => {
         await user1.signer.signTransaction(tx);
         await user2.signer.signTransaction(tx);
+        await user3.signer.signTransaction(tx);
       }
     });
 
@@ -221,7 +227,7 @@ describe('signers management', () => {
   });
 
   it('should fail multi-sig verification', async () => {
-    expect.assertions(6);
+    expect.assertions(7);
 
     // fails if don't have the contract acct sig when there are not authorized signers setup
     try {
@@ -234,8 +240,22 @@ describe('signers management', () => {
     }
 
     multisigContract.signer = multisigAcct.signer;
+
+    try {
+      await multisigContract.functions.add_signer({
+        signer: user1.address,
+      });
+    } catch (error) {
+      expect(JSON.parse(error.message).error).toStrictEqual(`account '${user1.address}' authorization failed`);
+    }
+
+    multisigContract.signer = multisigAcct.signer;
     let res = await multisigContract.functions.add_signer({
       signer: user1.address,
+    }, {
+      beforeSend: async (tx) => {
+        await user1.signer.signTransaction(tx);
+      }
     });
 
     await res.transaction?.wait();
@@ -254,6 +274,7 @@ describe('signers management', () => {
     }, {
       beforeSend: async (tx) => {
         await user1.signer.signTransaction(tx);
+        await user2.signer.signTransaction(tx);
       }
     });
 

@@ -156,6 +156,9 @@ export class Multisig {
 
     System.require(signer.length > 0, 'missing "signer" argument');
 
+    // check that the new signer signed the transaction
+    System.requireAuthority(authority.authorization_type.contract_call, signer);
+
     // update authorized signers state
     this.authorizedSigners.put(signer, new multisig.empty_object());
 
